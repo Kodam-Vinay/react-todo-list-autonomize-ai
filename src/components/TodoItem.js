@@ -25,7 +25,9 @@ const TodoItem = ({ todo, todoList }) => {
 
   return (
     <div className="todo-item-container">
-      <p>{todo.todo + " (Updated " + todo.updated + " Times)"}</p>
+      <p className="wrapped-text">
+        {todo.todo + " (Updated " + todo.updated + " Times)"}
+      </p>
       <div>
         <button type="button" onClick={() => onClickUpdate(todo?.id)}>
           <EditLogo />

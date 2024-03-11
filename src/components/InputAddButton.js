@@ -45,30 +45,13 @@ const InputAddButton = ({ setTodoList }) => {
     setInputValue(e.target.value);
   };
 
-  const inputRef = useRef(null);
-
   useEffect(() => {
     adjustWidth();
   }, [inputValue]);
 
   const adjustWidth = () => {
-    if (inputRef.current) {
-      const contentWidth = inputRef.current.scrollWidth;
-
-      // Set the minimum and maximum width (optional)
-      const minWidth = 50;
-      const maxWidth = 500;
-
-      // Calculate the input width based on character length
-      const characterWidth = 8; // Adjust this value based on your font and styling
-      const calculatedWidth = Math.max(
-        minWidth,
-        Math.min(contentWidth, maxWidth, characterWidth * inputValue.length)
-      );
-
-      // Set the input width
-      inputRef.current.style.width = calculatedWidth + "px";
-    }
+    document.getElementById("input").style.width =
+      (inputValue.length + 8) * 8 + "px";
   };
 
   return (
@@ -85,10 +68,8 @@ const InputAddButton = ({ setTodoList }) => {
           <input
             type="text"
             id="input"
-            ref={inputRef}
             value={inputValue}
             onChange={onChangeInput}
-            style={{}}
           />
         </div>
         {inputLength > 0 && <span>{inputLength}</span>}
