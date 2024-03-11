@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Body from "./components/Body";
+import InputContext from "./context/InputContext";
+import ListContext from "./context/ListContext";
+import UpdateContext from "./context/UpdateContext";
 
 function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [todoList, setTodoList] = useState([]);
+  const [updateItem, setUpdateItem] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <InputContext.Provider
+      value={{
+        inputValue: inputValue,
+        setInputValue: setInputValue,
+      }}
+    >
+      <ListContext.Provider
+        value={{
+          setTodoList: setTodoList,
+          todoList: todoList,
+        }}
+      >
+        <UpdateContext.Provider
+          value={{
+            updateItem: updateItem,
+            setUpdateItem: setUpdateItem,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div className="main-container">
+            <Body />
+          </div>
+        </UpdateContext.Provider>
+      </ListContext.Provider>
+    </InputContext.Provider>
   );
 }
 
