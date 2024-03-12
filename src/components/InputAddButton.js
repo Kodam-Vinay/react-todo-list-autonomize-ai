@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { v4 as uniqueId } from "uuid";
 import InputContext from "../context/InputContext";
 import UpdateContext from "../context/UpdateContext";
@@ -56,7 +56,7 @@ const InputAddButton = ({ setTodoList }) => {
 
   return (
     <form
-      className="input-button-container "
+      className="input-button-container"
       onSubmit={(e) => e.preventDefault()}
     >
       <div

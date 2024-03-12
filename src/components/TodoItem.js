@@ -10,6 +10,7 @@ const TodoItem = ({ todo, todoList }) => {
   const { setTodoList } = useContext(ListContext);
   const { setUpdateItem, updateItem } = useContext(UpdateContext);
   const onClickUpdate = () => {
+    document.getElementById("input").focus();
     setInputValue(todo.todo);
     setUpdateItem(todo);
   };

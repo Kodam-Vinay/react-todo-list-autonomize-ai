@@ -50,13 +50,13 @@
   border-radius: 4px;
   font-size: 20px;
   max-width: 80%;
-  /* border: 1px solid; */
 }
 
 .input-button-container > div > span {
   font-size: 20px;
-  margin: 0;
   margin: auto 0;
+  margin-bottom: 10px;
+  margin-left: -50px;
 }
 
 @media screen and (min-width: 560px) {
